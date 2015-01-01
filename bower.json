@@ -1,0 +1,24 @@
+{
+  "name": "thewebplatform.today",
+  "version": "0.0.0",
+  "homepage": "https://github.com/thewebplatform/thewebplatform.today",
+  "authors": [
+    "Erik <erik_isaksen@hotmail.com>"
+  ],
+  "description": "bower dependencies for The Web Platform Podcast",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.2",
+    "webcomponentsjs": "~0.5.2"
+  }
+}
