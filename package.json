@@ -1,0 +1,26 @@
+{
+  "name": "thewebplatform.today",
+  "version": "0.0.0",
+  "description": "The Web Platform Podcast website",
+  "main": "index.html",
+  "homepage" : "http://www.thewebplatform.today",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thewebplatform/thewebplatform.today.git"
+  },
+  "keywords": [
+    "web-components",
+    "web-platform",
+    "podcast",
+    "polymer"
+  ],
+  "author": "Erik Isaksen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thewebplatform/thewebplatform.today/issues"
+  },
+  "homepage": "https://github.com/thewebplatform/thewebplatform.today"
+}
