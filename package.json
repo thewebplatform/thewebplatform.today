@@ -2,10 +2,12 @@
   "name": "thewebplatform.today",
   "version": "0.0.0",
   "description": "The Web Platform Podcast website",
-  "main": "index.html",
+  "main": "app/index.html",
   "homepage" : "http://www.thewebplatform.today",
   "scripts": {
-    "feeds" : "node scripts/rsj.js > feed.json",
+    "sass" : "sass app/styles/components/components.scss app/styles/components.css && sass app/styles/main.scss app/styles/main.css",
+    "feeds" : "node scripts/rsj.js | json > feed.json",
+    "build" : "npm run sass && npm run feeds",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
