@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "description": "The Web Platform Podcast website",
   "main": "app/index.html",
-  "homepage" : "http://www.thewebplatform.today",
+  "homepage": "https://github.com/thewebplatform/thewebplatform.today",
   "scripts": {
-    "sass" : "sass app/styles/components/components.scss app/styles/components.css && sass app/styles/main.scss app/styles/main.css",
-    "feeds" : "node scripts/rsj.js | json > feed.json",
-    "build" : "npm run sass && npm run feeds",
+    "sass": "sass app/styles/components/components.scss app/styles/components.css && sass app/styles/main.scss app/styles/main.css",
+    "feeds": "node scripts/rsj.js | json > feed.json",
+    "build": "npm run sass && npm run feeds",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,5 +25,6 @@
   "bugs": {
     "url": "https://github.com/thewebplatform/thewebplatform.today/issues"
   },
-  "homepage": "https://github.com/thewebplatform/thewebplatform.today"
+  "devDependencies": {
+  }
 }

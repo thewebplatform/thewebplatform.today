@@ -19,6 +19,7 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#~0.5.2",
-    "webcomponentsjs": "~0.5.2"
+    "webcomponentsjs": "~0.5.2",
+    "web-component-tester": "Polymer/web-component-tester#~2.0.5"
   }
 }
