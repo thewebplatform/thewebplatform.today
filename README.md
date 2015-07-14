@@ -6,13 +6,13 @@ thewebplatform.today
 Polymer Web App for The Web Platform Podcast.
 
 
-## Polymer Starter Kit
+## The Web App
 
-> A starting point for building web applications with Polymer 1.0
+**thewebplatform.today** site uses Polymer at its core. The web app is created using [Polymer Started Kit](https://github.com/polymerelements/polymer-starter-kit). And most of the getting started instructions that you are going to see are the same.
 
-### Included out of the box:
+### Tools/Libraries used in this web app:
 
-* [Polymer](http://polymer-project.org), [Paper](https://elements.polymer-project.org/browse?package=paper-elements) and [Iron](https://elements.polymer-project.org/browse?package=iron-elements) elements
+* [Polymer](http://polymer-project.org)
 * [Material Design](http://www.google.com/design/spec/material-design/introduction.html) layout 
 * Routing with [Page.js](https://visionmedia.github.io/page.js/)
 * Unit testing with Web Component Tester
@@ -21,7 +21,7 @@ Polymer Web App for The Web Platform Podcast.
 
 ## Getting Started
 
-To take advantage of Polymer Starter Kit you need to:
+Please follow the following steps in order to set up the workspace.
 
 1. Get a copy of the code.
 2. Install the dependencies if you don't already have them.
@@ -30,9 +30,9 @@ To take advantage of Polymer Starter Kit you need to:
 
 ### Get the code
 
-[Download](https://github.com/polymerelements/polymer-starter-kit/releases/latest) and extract Polymer Starter Kit to where you want to work.
+[Download](https://github.com/thewebplatform/thewebplatform.today) and extract the `zip` file to where you want to work. If you know how to use git, feel free to fork or clone the project.
 
-The standard version of Polymer Starter Kit comes with tools that are very handy when developing a Polymer app. If you'd like to get started without installing any new tools, see Polymer Starter Kit Light in the [Releases](https://github.com/polymerelements/polymer-starter-kit/releases/latest) page.
+The tools are bundled in the zip file, you will just need to install the dependencies.
 
 ### Install dependencies
 
@@ -85,11 +85,13 @@ This installs the element sets (Paper, Iron, Platinum) and tools the starter kit
 
 #### Serve / watch
 
+Even though the Polymer Starter Kit suggests that we can use `gulp serve` to test the files locally, this project uses [Divshot](http://docs.divshot.io/) to serve files, both locally and on production. You can test the site using the following command.
+
 ```sh
-gulp serve
+divshot server
 ```
 
-This outputs an IP address you can use to locally test and another that can be used on devices connected to your network.
+This outputs a port number that you can use along with the web address `http://localhost` to locally test and another that can be used on devices connected to your network.
 
 #### Run tests
 
@@ -109,7 +111,7 @@ Build and optimize the current project, ready for deployment. This includes lint
 
 ## Application Theming
 
-Polymer 1.0 introduces a shim for CSS custom properties. We take advantage of this in `app/styles/app-theme.html` to provide theming for your application. You can also find our presets for Material Design breakpoints in this file.
+Polymer 1.0 introduces a shim for CSS custom properties. We take advantage of this in `app/styles/app-theme.html` to provide theming for the web app. You can also find the presets for Material Design breakpoints in this file.
 
 [Read more](https://www.polymer-project.org/1.0/docs/devguide/styling.html) about CSS custom properties.
 
@@ -127,7 +129,7 @@ Polymer uses [Bower](http://bower.io) for package management. This makes it easy
 
 Polymer Starter Kit offers an offline-first experience thanks to Service Worker and the [Platinum Service Worker elements](https://github.com/PolymerElements/platinum-sw). New to Service Worker? Read the following [introduction](http://www.html5rocks.com/en/tutorials/service-worker/introduction/) to understand how it works.
 
-Our default offline setup should work well for relatively simple applications. For more complex apps, we recommend learning how Service Worker works so that you can make the most of the Platinum Service Worker element abstractions. 
+Our default offline setup should work well for relatively simple applications. For more complex apps, we recommend learning how Service Worker works so that you can make the most of the Platinum Service Worker element abstractions.
 
 #### Filing bugs in the right place
 
@@ -140,7 +142,7 @@ If you experience an issue with Service Worker support in your application, chec
 
 #### I get an error message about "Only secure origins are allowed"
 
-Service Workers are only available to "secure origins" (HTTPS sites, basically) in line with a policy to prefer secure origins for powerful new features. However http://localhost is also considered a secure origin, so if you can, developing on localhost is an easy way to avoid this error. For production, your site will need to support HTTPS. 
+Service Workers are only available to "secure origins" (HTTPS sites, basically) in line with a policy to prefer secure origins for powerful new features. However http://localhost is also considered a secure origin, so if you can, developing on localhost is an easy way to avoid this error. For production, your site will need to support HTTPS.
 
 #### How do I debug Service Worker?
 
@@ -269,4 +271,4 @@ If you find that you just want the simplest setup possible, we recommend using P
 
 ## Contributing
 
-Polymer Starter Kit is a new project and is an ongoing effort by the Web Component community. We welcome your bug reports, PRs for improvements, docs and anything you think would improve the experience for other Polymer developers.
+The WebPlatform TOday is an ongoing effort by this community. We welcome your bug reports, PRs for improvements, docs and anything you think would improve the experience for other Polymer developers.
