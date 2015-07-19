@@ -114,6 +114,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   .content {
     height: 900px;
   }
+		
+	universal-footer {
+		--universal-footer-background-color: black;
+		--universal-footer-text-color: gray;
+		--universal-footer-col-title-color: #0170ba;
+		--universal-footer-padding: 40px;
+	}
 
   /* Breakpoints */
 
@@ -146,6 +153,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     .bg {
       background: white;
     }
+			
+		.multicol.universal-footer [multicol] > [col] {
+			flex: auto;
+		}
 
   }
 
@@ -159,13 +170,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       padding-right: 30px;
     }
 
-    #drawer.paper-drawer-panel > [drawer] {
-      border-right: 1px solid rgba(0, 0, 0, 0.14);
-    }
+    paper-drawer-panel {
+			--paper-drawer-panel-left-drawer-container: {
+				display: none;
+			};
+			--paper-drawer-panel-main-container: {
+				left: 0px !important;
+			};
+		}
 
     iron-pages {
       padding: 48px 62px;
     }
+		
+		.multicol.universal-footer [multicol] > [col] {
+			flex: 1;
+		}
 
   }
 
