@@ -28,3 +28,21 @@ body {
 .bottom {
 	height: 100%;
 }
+
+.credits {
+	color: white;
+	font-weight: 100;
+	margin: 30px auto 10px;
+}
+.crimson{
+	color: crimson;
+}
+
+.mediumpurple {
+	color: mediumpurple;
+}
+
+.webplatform-button {
+	background: #1976D2;
+	color: #BBDEFB;
+}

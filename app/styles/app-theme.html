@@ -134,9 +134,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 		margin-top: 18px;
 		margin-left: 50px;
 	}
-	paper-tab {
-		min-width: 150px;
-	}
+	
   /* Breakpoints */
 
   /* Small */
@@ -172,6 +170,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 		.multicol.universal-footer [multicol] > [col] {
 			flex: auto;
 		}
+			
+		paper-tabs {
+			width: 100%;
+			margin-left: 0;
+		}
+			
+		
+		paper-tab {
+			min-width: calc( 30% - 11px );
+		}
 
   }
 
@@ -201,6 +209,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 		.multicol.universal-footer [multicol] > [col] {
 			flex: 1;
 		}
+			
+		paper-tab {
+			min-width: 150px;
+		}
 
   }
 
@@ -227,9 +239,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 			font-size: 20px;
 		}
 		
-		paper-toolbar paper-tabs {
-			display: none;
-		}
+		
 	}
   /* mobile-small-landscape */
   @media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }
