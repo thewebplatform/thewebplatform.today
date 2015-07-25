@@ -16,7 +16,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Polymer Starter Kit" />
-  <title>Polymer Starter Kit</title>
+  <title>The Web Platform Today</title>
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
   <!-- Chrome for Android theme color -->
@@ -59,134 +59,115 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
 
-    <paper-drawer-panel id="paperDrawerPanel">
-      <div drawer>
+		<paper-header-panel main mode="standard" class="tall">
 
-        <!-- Drawer Toolbar -->
-        <paper-toolbar id="drawerToolbar">
-          <span class="paper-font-title">Menu</span>
-        </paper-toolbar>
+			<!-- Main Toolbar -->
+			<paper-toolbar id="mainToolbar" class="tall layout vertical">
+				
+				<span class="flex"></span>
 
-        <!-- Drawer Content -->
-          <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
-              <a data-route="home" href="/">
-                <iron-icon icon="home"></iron-icon>
-                <span>Home</span>
-              </a>
+				<!-- Toolbar icons -->
+				<paper-icon-button icon="refresh"></paper-icon-button>
+				<paper-icon-button icon="search"></paper-icon-button>
 
-              <a data-route="users" href="/users">
-                <iron-icon icon="info"></iron-icon>
-                <span>Users</span>
-              </a>
+				<!-- Application name -->
+				<div class="flex middle app-name layout horizontal">
+					<iron-image class="center" src="images/logo.png" style="width:100px; height:100px;" sizing="contain"></iron-image>
+					<h3 class="paper-font-display2 flex center">The Web Platform Today</h3>
+				</div>
 
-              <a data-route="contact" href="/contact">
-                <iron-icon icon="mail"></iron-icon>
-                <span>Contact</span>
-              </a>
-          </paper-menu>
-      </div>
-      <paper-header-panel main mode="waterfall-tall">
+				<!-- Application sub title -->
+				<paper-tabs selected="0" class="bottom self-end">
 
-        <!-- Main Toolbar -->
-        <paper-toolbar id="mainToolbar">
-          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-          <span class="flex"></span>
+					<paper-tab>ITEM ONE</paper-tab>
+					<paper-tab>ITEM TWO</paper-tab>
 
-          <!-- Toolbar icons -->
-          <paper-icon-button icon="refresh"></paper-icon-button>
-          <paper-icon-button icon="search"></paper-icon-button>
+				</paper-tabs>
 
-          <!-- Application name -->
-          <div class="middle paper-font-display2 app-name">The Web Platform Today</div>
+			</paper-toolbar>
 
-          <!-- Application sub title -->
-          <div class="bottom title"></div>
+			<!-- Main Content -->
+			<div class="content">
+				<iron-pages attr-for-selected="data-route" selected="{{route}}">
 
-        </paper-toolbar>
+					<section data-route="home">
+						<paper-material elevation="1">
+							<my-greeting></my-greeting>
 
-        <!-- Main Content -->
-        <div class="content">
-          <iron-pages attr-for-selected="data-route" selected="{{route}}">
+							<p class="paper-font-subhead">You now have:</p>
+							<my-list></my-list>
 
-            <section data-route="home">
-              <paper-material elevation="1">
-                <my-greeting></my-greeting>
+							<p class="paper-font-body2">Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
+						</paper-material>
+						<paper-material elevation="1">
+							<p class="paper-font-body2">This is another card.</p>
+						</paper-material>
 
-                <p class="paper-font-subhead">You now have:</p>
-                <my-list></my-list>
+						<paper-material elevation="1" class="paper-font-body2">
+							<h1 id="license">License</h1>
+							<p>Everything in this repo is BSD style license unless otherwise specified.</p>
+							<p>Copyright (c) 2015 The Polymer Authors. All rights reserved.</p>
+							<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+							<ul>
+							<li>Redistributions of source code must retain the above copyright
+							notice, this list of conditions and the following disclaimer.</li>
+							<li>Redistributions in binary form must reproduce the above
+							copyright notice, this list of conditions and the following disclaimer
+							in the documentation and/or other materials provided with the
+							distribution.</li>
+							<li>Neither the name of Google Inc. nor the names of its
+							contributors may be used to endorse or promote products derived from
+							this software without specific prior written permission.</li>
+							</ul>
+							<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+						</paper-material>
 
-                <p class="paper-font-body2">Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
-              </paper-material>
-              <paper-material elevation="1">
-                <p class="paper-font-body2">This is another card.</p>
-              </paper-material>
+					</section>
 
-              <paper-material elevation="1" class="paper-font-body2">
-                <h1 id="license">License</h1>
-                <p>Everything in this repo is BSD style license unless otherwise specified.</p>
-                <p>Copyright (c) 2015 The Polymer Authors. All rights reserved.</p>
-                <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
-                <ul>
-                <li>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</li>
-                <li>Redistributions in binary form must reproduce the above
-                copyright notice, this list of conditions and the following disclaimer
-                in the documentation and/or other materials provided with the
-                distribution.</li>
-                <li>Neither the name of Google Inc. nor the names of its
-                contributors may be used to endorse or promote products derived from
-                this software without specific prior written permission.</li>
-                </ul>
-                <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
-              </paper-material>
+					<section data-route="users">
+						<paper-material elevation="1">
+							<h2 class="paper-font-display2">Users</h2>
+							<p>This is the users section</p>
+							<a href="/users/Rob">Rob</a>
+						</paper-material>
+					</section>
 
-            </section>
+					<section data-route="user-info">
+						<paper-material elevation="1">
+							<h2 class="paper-font-display2">
+							User:<span>{{params.name}}</span>
+							</h2>
+							<div>This is <span>{{params.name}}</span>'s section</div>
+						</paper-material>
+					</section>
 
-            <section data-route="users">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">Users</h2>
-                <p>This is the users section</p>
-                <a href="/users/Rob">Rob</a>
-              </paper-material>
-            </section>
+					<section data-route="contact">
+						<paper-material elevation="1">
+							<h2 class="paper-font-display2">Contact</h2>
+							<p>This is the contact section</p>
+						</paper-material>
+					</section>
 
-            <section data-route="user-info">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">
-                User:<span>{{params.name}}</span>
-                </h2>
-                <div>This is <span>{{params.name}}</span>'s section</div>
-              </paper-material>
-            </section>
-
-            <section data-route="contact">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">Contact</h2>
-                <p>This is the contact section</p>
-              </paper-material>
-            </section>
-
-          </iron-pages>
-					<universal-footer>
-						<div multicol>
-							<div col>
-								<div row title>About the Web Platform Podcast</div>
-								<div row longtext>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta urna massa, vel gravida nulla hendrerit vel. Etiam sit amet tellus pretium, faucibus libero vitae, facilisis orci. Maecenas sed imperdiet ipsum. Integer imperdiet dignissim magna ut malesuada. Morbi vulputate lobortis odio a suscipit. Pellentesque sodales justo varius, blandit magna vel, aliquet sapien. Fusce nibh magna, porttitor a eleifend sit amet, commodo id dolor. Vivamus lobortis orci nec condimentum porta. Curabitur odio tortor, vestibulum cursus mauris semper, aliquam ultrices velit. Etiam tincidunt vulputate euismod. Suspendisse vitae dolor at libero lobortis tincidunt quis ac purus. Donec sed commodo leo, quis pellentesque nunc. Ut vestibulum arcu sed est vulputate, vel molestie sem accumsan. Proin ultrices tempus massa. Morbi feugiat nisi id hendrerit mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-								</div>
-							</div>
-							<div col>
-								<div row title>About the Web Platform Podcast</div>
-								<div row longtext>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta urna massa, vel gravida nulla hendrerit vel. Etiam sit amet tellus pretium, faucibus libero vitae, facilisis orci. Maecenas sed imperdiet ipsum. Integer imperdiet dignissim magna ut malesuada. Morbi vulputate lobortis odio a suscipit. Pellentesque sodales justo varius, blandit magna vel, aliquet sapien. Fusce nibh magna, porttitor a eleifend sit amet, commodo id dolor. Vivamus lobortis orci nec condimentum porta. Curabitur odio tortor, vestibulum cursus mauris semper, aliquam ultrices velit. Etiam tincidunt vulputate euismod. Suspendisse vitae dolor at libero lobortis tincidunt quis ac purus. Donec sed commodo leo, quis pellentesque nunc. Ut vestibulum arcu sed est vulputate, vel molestie sem accumsan. Proin ultrices tempus massa. Morbi feugiat nisi id hendrerit mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-								</div>
+				</iron-pages>
+				<universal-footer>
+					<div multicol>
+						<div col>
+							<div row title>About the Web Platform Podcast</div>
+							<div row longtext>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta urna massa, vel gravida nulla hendrerit vel. Etiam sit amet tellus pretium, faucibus libero vitae, facilisis orci. Maecenas sed imperdiet ipsum. Integer imperdiet dignissim magna ut malesuada. Morbi vulputate lobortis odio a suscipit. Pellentesque sodales justo varius, blandit magna vel, aliquet sapien. Fusce nibh magna, porttitor a eleifend sit amet, commodo id dolor. Vivamus lobortis orci nec condimentum porta. Curabitur odio tortor, vestibulum cursus mauris semper, aliquam ultrices velit. Etiam tincidunt vulputate euismod. Suspendisse vitae dolor at libero lobortis tincidunt quis ac purus. Donec sed commodo leo, quis pellentesque nunc. Ut vestibulum arcu sed est vulputate, vel molestie sem accumsan. Proin ultrices tempus massa. Morbi feugiat nisi id hendrerit mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 							</div>
 						</div>
-						<div copyright-center>© 2015 The Web Platform Today</div>
-					</universal-footer>
-        </div>
-      </paper-header-panel>
-    </paper-drawer-panel>
+						<div col>
+							<div row title>About the Web Platform Podcast</div>
+							<div row longtext>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer porta urna massa, vel gravida nulla hendrerit vel. Etiam sit amet tellus pretium, faucibus libero vitae, facilisis orci. Maecenas sed imperdiet ipsum. Integer imperdiet dignissim magna ut malesuada. Morbi vulputate lobortis odio a suscipit. Pellentesque sodales justo varius, blandit magna vel, aliquet sapien. Fusce nibh magna, porttitor a eleifend sit amet, commodo id dolor. Vivamus lobortis orci nec condimentum porta. Curabitur odio tortor, vestibulum cursus mauris semper, aliquam ultrices velit. Etiam tincidunt vulputate euismod. Suspendisse vitae dolor at libero lobortis tincidunt quis ac purus. Donec sed commodo leo, quis pellentesque nunc. Ut vestibulum arcu sed est vulputate, vel molestie sem accumsan. Proin ultrices tempus massa. Morbi feugiat nisi id hendrerit mollis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+							</div>
+						</div>
+					</div>
+					<div copyright-center>© 2015 The Web Platform Today</div>
+				</universal-footer>
+			</div>
+		</paper-header-panel>
 
     <paper-toast id="caching-complete"
                  duration="6000"
