@@ -26,7 +26,8 @@
     "universal-footer": "*",
     "podcast-player": "~1.0.1",
     "iron-image": "PolymerElements/iron-image#~1.0.2",
-    "paper-tabs": "PolymerElements/paper-tabs#~1.0.1"
+    "paper-tabs": "PolymerElements/paper-tabs#~1.0.1",
+    "paper-button": "PolymerElements/paper-button#~1.0.3"
   },
   "devDependencies": {
     "web-component-tester": "*",
