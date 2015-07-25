@@ -103,6 +103,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   #mainToolbar .middle {
     margin-left: 48px;
   }
+	#mainToolbar .middle h3 {
+		font-weight: 100;
+	}
 
   #mainToolbar.has-shadow .middle {
     font-size: 20px;
@@ -132,6 +135,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 		
 	paper-tabs {
 		margin-top: 18px;
+		margin-left: 50px;
 	}
 	paper-tab {
 		min-width: 150px;
@@ -213,9 +217,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    */
 
   /* mobile-small */
-  @media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait) { }
-  /* mobile-large */
-  @media all and (min-width: 361px) and (orientation: portrait) { }
+  @media all and (min-width: 0) and (max-width: 480px) and (orientation: portrait) { 
+		.app-name {
+			margin-left: 10px !important;
+			margin-top: 50px;
+		}
+		.app-name iron-image {
+			max-width: 50px;
+			display: block;
+		}
+		.app-name h3 {
+			font-size: 20px;
+		}
+		
+		paper-toolbar paper-tabs {
+			display: none;
+		}
+	}
   /* mobile-small-landscape */
   @media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }
   /* mobile-large-landscape */
@@ -223,7 +241,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   /* tablet-small-landscape */
   @media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape) { }
   /* tablet-large-landscape */
-  @media all and (min-width: 961px) and (orientation: landscape) { }
+  @media all and (min-width: 961px) and (orientation: landscape) { 
+	
+	
+	}
   /* tablet-small */
   @media all and (min-width: 600px) and (orientation: portrait) { }
   /* tablet-large */
