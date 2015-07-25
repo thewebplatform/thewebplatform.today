@@ -12,3 +12,19 @@ body {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
 }
+
+.app-name{
+	margin-top: 30px;
+	margin-bottom: 30px
+}
+.app-name iron-image {
+	margin: auto;
+}
+
+.app-name h3 {
+	margin: auto 20px;
+}
+
+.bottom {
+	height: 100%;
+}
