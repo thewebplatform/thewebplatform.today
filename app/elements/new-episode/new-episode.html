@@ -5,6 +5,18 @@
 		:host {
 			height: 100%;
 			width: 100%;
+			display: block;
+			position: relative;
+		}
+		.playerloc {
+			position: relative;
+			display: block;
+			height: 150px;
+			margin-top: 50px;
+		}
+		podcast-player {
+			position: absolute;
+			bottom: 0;
 		}
 	</style>
 	<template>
@@ -14,7 +26,14 @@
 		<p>New Episode Page</p>
 		<p>New Episode Page</p>
 		<p>New Episode Page</p>
-		<p>New Episode Page</p>
+		<div class="playerloc">
+			<podcast-player
+				src="http://traffic.libsyn.com/thewebplatform/episode-53_diving-into-angular-2.mp3"
+				name="Diving into Angular 2"
+				coverart="http://assets.libsyn.com/content/9454132"
+  			episode="53"></podcast-player>
+		</div>
+		
 	</template>
 </dom-module>
 <script>
