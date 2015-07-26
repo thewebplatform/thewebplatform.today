@@ -18,28 +18,46 @@
 			position: absolute;
 			bottom: 0;
 		}
+		.episode-info {
+			padding: 50px;
+		}
 	</style>
 	<template>
-		<h1>New Episode Page</h1>
-		<p>New Episode Page</p>
-		<p>New Episode Page</p>
-		<p>New Episode Page</p>
-		<p>New Episode Page</p>
-		<p>New Episode Page</p>
+		<iron-localstorage name="content" value="{{localstoragecontent}}" autoSaveDisabled="true"></iron-localstorage>
+		<paper-material class="episode-info" elevation="0">
+			<h1>{{content.title}}</h1>
+			<p>New Episode Page</p>
+			<p>New Episode Page</p>
+			<p>New Episode Page</p>
+			<p>New Episode Page</p>
+			<p>New Episode Page</p>
+		</paper-material>
 		<div class="playerloc">
 			<podcast-player
-				src="http://traffic.libsyn.com/thewebplatform/episode-53_diving-into-angular-2.mp3"
+				src="../../episode-53_diving-into-angular-2.mp3"
 				name="Diving into Angular 2"
 				coverart="http://assets.libsyn.com/content/9454132"
   			episode="53"></podcast-player>
 		</div>
-		
 	</template>
 </dom-module>
 <script>
 	( function() {
 		Polymer({
-			is: 'new-episode'
+			is: 'new-episode',
+			properties: {
+				localstoragecontent: {
+					type: Object,
+					observer: '_updateContent'
+				},
+				content: {
+					type: Object,
+					value: []
+				}
+			},
+			_updateContent: function () {
+				this.content = this.localstoragecontent[0];
+			}
 		});
 	})();
 </script>
