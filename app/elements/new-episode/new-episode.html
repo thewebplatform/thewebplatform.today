@@ -41,6 +41,30 @@
 			width: 120px;
 			height: 120px;
 		}
+		.resources {
+			display: block;
+		}
+		.resources h3 {
+			font-weight: 100;
+			font-size: 20px;
+		}
+		.resources paper-item {
+			display: inline-block;
+			padding: 10px 20px;
+			margin: 1px;
+			color: var(--secondary-text-color);
+		}
+		.resources .item-title {
+			font-weight: 100;
+			font-size: 16sp;
+		}
+		.resources .item-link {
+			font-weight: 100;
+			font-size: 14sp;
+		}
+		.resources .item-link a {
+			color: var(--secondary-text-color);
+		}
 	</style>
 	<template>
 		<iron-localstorage name="content" value="{{localstoragecontent}}"></iron-localstorage>
@@ -62,7 +86,22 @@
 			<div class="summary">
 				<p>{{content.summary}}</p>
 			</div>
-			
+			<div class="layout vertical resources">
+				<div>
+					<h3>Resources</h3>
+				</div>
+				<div class="flex layout horizontal">
+					<template is="dom-repeat" items="{{content.resources}}">
+						
+						<paper-item class="flex">
+							<paper-item-body two-line>
+								<div class="item-title">{{item.title}}</div>
+								<div secondary class="item-link"><a href="{{item.link}}">{{item.link}}</a></div>
+							</paper-item-body>
+						</paper-item>
+					</template>
+				</div>
+			</div>
 		</paper-material>
 		<div class="playerloc">
 			<podcast-player
