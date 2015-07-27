@@ -7,6 +7,9 @@
 			width: 100%;
 			display: block;
 			position: relative;
+			font-family: 'Roboto', sans-serif;
+			-webkit-font-smoothing: antialiased;
+			text-rendering: optimizeLegibility;
 		}
 		.playerloc {
 			position: relative;
@@ -19,18 +22,47 @@
 			bottom: 0;
 		}
 		.episode-info {
-			padding: 50px;
+			margin: 50px;
+			padding: 20px;
+		}
+		.episode-info h1{
+			color: var(--primary-text-color);
+			font-size: 40px;
+			font-weight: 100;
+			margin-top: 10px;
+		}
+		.episode-info h5{
+			color: var(--secondary-text-color);
+			font-weight: 100;
+			margin-bottom: 0;
+			margin-top: 40px;
+		}
+		.episode-coverart {
+			width: 120px;
+			height: 120px;
 		}
 	</style>
 	<template>
-		<iron-localstorage name="content" value="{{localstoragecontent}}" autoSaveDisabled="true"></iron-localstorage>
-		<paper-material class="episode-info" elevation="0">
-			<h1>{{content.title}}</h1>
-			<p>New Episode Page</p>
-			<p>New Episode Page</p>
-			<p>New Episode Page</p>
-			<p>New Episode Page</p>
-			<p>New Episode Page</p>
+		<iron-localstorage name="content" value="{{localstoragecontent}}"></iron-localstorage>
+		<iron-ajax id="contentservice"
+				auto
+				url="http://localhost:3000/content.json"
+				handle-as="json"
+				on-response="_handleContentResponse"></iron-ajax>
+		<paper-material class="episode-info" elevation="1">
+			<div class="titlebar layout horizontal">
+				<div class="flex layout vertical">
+					<h5>Episode <span>{{content.episode}}</span></h5>
+					<h1 class="flex">{{content.title}}</h1>
+				</div>
+				<div>
+					<iron-image class="episode-coverart"	src="{{content.coverart}}" sizing="contain"></iron-image>
+				</div>
+			</div>
+			<div class="summary">
+				<p>{{content.summary}}</p>
+			</div>
+			
 		</paper-material>
 		<div class="playerloc">
 			<podcast-player
@@ -57,6 +89,9 @@
 			},
 			_updateContent: function () {
 				this.content = this.localstoragecontent[0];
+			},
+			_handleContentResponse: function (e, detail) {
+				this.localstoragecontent = detail.response;
 			}
 		});
 	})();
