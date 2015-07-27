@@ -39,10 +39,4 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       drawerPanel.closeDrawer();
     }
   };
-
-	// For Content service
-	app.handleContentResponse = function(e, detail) {
-		content = e.detail.response;
-		localStorage.setItem("content", JSON.stringify(content));
-	};
 })(document);

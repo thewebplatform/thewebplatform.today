@@ -7,6 +7,9 @@
 			width: 100%;
 			display: block;
 			position: relative;
+			font-family: 'Roboto', sans-serif;
+			-webkit-font-smoothing: antialiased;
+			text-rendering: optimizeLegibility;
 		}
 		.playerloc {
 			position: relative;
@@ -19,18 +22,86 @@
 			bottom: 0;
 		}
 		.episode-info {
-			padding: 50px;
+			margin: 50px;
+			padding: 20px;
+		}
+		.episode-info h1{
+			color: var(--primary-text-color);
+			font-size: 40px;
+			font-weight: 100;
+			margin-top: 10px;
+		}
+		.episode-info h5{
+			color: var(--secondary-text-color);
+			font-weight: 100;
+			margin-bottom: 0;
+			margin-top: 40px;
+		}
+		.episode-coverart {
+			width: 120px;
+			height: 120px;
+		}
+		.resources {
+			display: block;
+		}
+		.resources h3 {
+			font-weight: 100;
+			font-size: 20px;
+		}
+		.resources paper-item {
+			display: inline-block;
+			padding: 10px 20px;
+			margin: 1px;
+			color: var(--secondary-text-color);
+		}
+		.resources .item-title {
+			font-weight: 100;
+			font-size: 16sp;
+		}
+		.resources .item-link {
+			font-weight: 100;
+			font-size: 14sp;
+		}
+		.resources .item-link a {
+			color: var(--secondary-text-color);
 		}
 	</style>
 	<template>
-		<iron-localstorage name="content" value="{{localstoragecontent}}" autoSaveDisabled="true"></iron-localstorage>
-		<paper-material class="episode-info" elevation="0">
-			<h1>{{content.title}}</h1>
-			<p>New Episode Page</p>
-			<p>New Episode Page</p>
-			<p>New Episode Page</p>
-			<p>New Episode Page</p>
-			<p>New Episode Page</p>
+		<iron-localstorage name="content" value="{{localstoragecontent}}"></iron-localstorage>
+		<iron-ajax id="contentservice"
+				auto
+				url="http://localhost:3000/content.json"
+				handle-as="json"
+				on-response="_handleContentResponse"></iron-ajax>
+		<paper-material class="episode-info" elevation="1">
+			<div class="titlebar layout horizontal">
+				<div class="flex layout vertical">
+					<h5>Episode <span>{{content.episode}}</span></h5>
+					<h1 class="flex">{{content.title}}</h1>
+				</div>
+				<div>
+					<iron-image class="episode-coverart"	src="{{content.coverart}}" sizing="contain"></iron-image>
+				</div>
+			</div>
+			<div class="summary">
+				<p>{{content.summary}}</p>
+			</div>
+			<div class="layout vertical resources">
+				<div>
+					<h3>Resources</h3>
+				</div>
+				<div class="flex layout horizontal">
+					<template is="dom-repeat" items="{{content.resources}}">
+						
+						<paper-item class="flex">
+							<paper-item-body two-line>
+								<div class="item-title">{{item.title}}</div>
+								<div secondary class="item-link"><a href="{{item.link}}">{{item.link}}</a></div>
+							</paper-item-body>
+						</paper-item>
+					</template>
+				</div>
+			</div>
 		</paper-material>
 		<div class="playerloc">
 			<podcast-player
@@ -57,6 +128,9 @@
 			},
 			_updateContent: function () {
 				this.content = this.localstoragecontent[0];
+			},
+			_handleContentResponse: function (e, detail) {
+				this.localstoragecontent = detail.response;
 			}
 		});
 	})();
