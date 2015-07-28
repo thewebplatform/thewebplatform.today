@@ -21,13 +21,9 @@
 			position: absolute;
 			bottom: 0;
 		}
-		.episode-info {
-			margin: 50px;
-			padding: 20px;
-		}
+		
 		.episode-info h1{
 			color: var(--primary-text-color);
-			font-size: 40px;
 			font-weight: 100;
 			margin-top: 10px;
 		}
@@ -35,12 +31,8 @@
 			color: var(--secondary-text-color);
 			font-weight: 100;
 			margin-bottom: 0;
-			margin-top: 40px;
 		}
-		.episode-coverart {
-			width: 120px;
-			height: 120px;
-		}
+		
 		.resources {
 			display: block;
 		}
@@ -48,8 +40,10 @@
 			font-weight: 100;
 			font-size: 20px;
 		}
+		.resources paper-material {
+			margin:0;
+		}
 		.resources paper-item {
-			display: inline-block;
 			padding: 10px 20px;
 			margin: 1px;
 			color: var(--secondary-text-color);
@@ -57,14 +51,60 @@
 		.resources .item-title {
 			font-weight: 100;
 			font-size: 16sp;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 		.resources .item-link {
 			font-weight: 100;
 			font-size: 14sp;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 		.resources .item-link a {
 			color: var(--secondary-text-color);
 		}
+		
+		@media all and (min-width: 0) and (max-width: 600px) {
+			.resources paper-material {
+				width: auto;
+				display: block;
+			}
+			.episode-info {
+				margin: 20px;
+				padding: 10px;
+			}
+			.episode-coverart {
+				width: 80px;
+				height: 80px;
+			}
+			.episode-info h1{
+				font-size: 30px;
+			}
+			.episode-info h5{
+				margin-top: 0;
+			}
+		}
+		@media all and (min-width: 601px) {
+			.resources paper-material {
+				width: 49%;
+				display: inline-block;
+			}
+			.episode-info {
+				margin: 50px;
+				padding: 20px;
+			}
+			.episode-coverart {
+				width: 120px;
+				height: 120px;
+			}
+			.episode-info h1{
+				font-size: 40px;
+			}
+			.episode-info h5{
+				margin-top: 40px;
+			}
+		}
+		
 	</style>
 	<template>
 		<iron-localstorage name="content" value="{{localstoragecontent}}"></iron-localstorage>
@@ -90,15 +130,16 @@
 				<div>
 					<h3>Resources</h3>
 				</div>
-				<div class="flex layout horizontal">
+				<div class="block">
 					<template is="dom-repeat" items="{{content.resources}}">
-						
-						<paper-item class="flex">
-							<paper-item-body two-line>
-								<div class="item-title">{{item.title}}</div>
-								<div secondary class="item-link"><a href="{{item.link}}">{{item.link}}</a></div>
-							</paper-item-body>
-						</paper-item>
+						<paper-material elevation="1">
+							<paper-item>
+								<paper-item-body two-line>
+									<div class="item-title">{{item.title}}</div>
+									<div secondary class="item-link"><a href="{{item.link}}">{{item.link}}</a></div>
+								</paper-item-body>
+							</paper-item>
+						</paper-material>
 					</template>
 				</div>
 			</div>
