@@ -113,7 +113,7 @@
 				url="http://localhost:3000/content.json"
 				handle-as="json"
 				on-response="_handleContentResponse"></iron-ajax>
-		<paper-material class="episode-info" elevation="1">
+		<div class="episode-info" elevation="1">
 			<div class="titlebar layout horizontal">
 				<div class="flex layout vertical">
 					<h5>Episode <span>{{content.episode}}</span></h5>
@@ -143,13 +143,14 @@
 					</template>
 				</div>
 			</div>
-		</paper-material>
+		</div>
 		<div class="playerloc">
 			<podcast-player
-				src="https://s3.amazonaws.com/thewebplatform/episode-53_diving-into-angular-2.mp3"
-				name="Diving into Angular 2"
-				coverart="http://assets.libsyn.com/content/9454132"
-  			episode="53"></podcast-player>
+				src="{{content.mp3}}"
+				name="{{content.title}}"
+				coverart="{{content.coverart}}"
+				datapoints="{{content.datapoints}}"
+  			episode="{{content.episode}}"></podcast-player>
 		</div>
 	</template>
 </dom-module>
