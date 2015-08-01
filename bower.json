@@ -24,7 +24,7 @@
     "neon-elements": "PolymerElements/neon-elements#1.0.0",
     "page": "visionmedia/page.js#~1.6.3",
     "universal-footer": "*",
-    "podcast-player": "~1.0.5",
+    "podcast-player": "~1.0.6",
     "iron-image": "PolymerElements/iron-image#~1.0.2",
     "paper-tabs": "PolymerElements/paper-tabs#~1.0.1",
     "paper-button": "PolymerElements/paper-button#~1.0.3",

@@ -42,10 +42,12 @@
 		}
 		.resources paper-material {
 			margin:0;
+			border-right: 1px solid rgba(0,0,0,0.12);
+			border-bottom: 1px solid rgba(0,0,0,0.12);
 		}
 		.resources paper-item {
 			padding: 10px 20px;
-			margin: 1px;
+			margin: 0;
 			color: var(--secondary-text-color);
 		}
 		.resources .item-title {
@@ -68,6 +70,7 @@
 			.resources paper-material {
 				width: auto;
 				display: block;
+				margin: 0;
 			}
 			.episode-info {
 				margin: 20px;
@@ -86,7 +89,7 @@
 		}
 		@media all and (min-width: 601px) {
 			.resources paper-material {
-				width: 49%;
+				width: 33%;
 				display: inline-block;
 			}
 			.episode-info {
@@ -101,7 +104,7 @@
 				font-size: 40px;
 			}
 			.episode-info h5{
-				margin-top: 40px;
+				margin-top: 10px;
 			}
 		}
 
@@ -110,10 +113,10 @@
 		<iron-localstorage name="content" value="{{localstoragecontent}}"></iron-localstorage>
 		<iron-ajax id="contentservice"
 				auto
-				url="http://localhost:3000/content.json"
+				url="../../content.json"
 				handle-as="json"
 				on-response="_handleContentResponse"></iron-ajax>
-		<paper-material class="episode-info" elevation="1">
+		<div class="episode-info" elevation="1">
 			<div class="titlebar layout horizontal">
 				<div class="flex layout vertical">
 					<h5>Episode <span>{{content.episode}}</span></h5>
@@ -132,7 +135,7 @@
 				</div>
 				<div class="block">
 					<template is="dom-repeat" items="{{content.resources}}">
-						<paper-material elevation="1">
+						<paper-material elevation="0">
 							<paper-item>
 								<paper-item-body two-line>
 									<div class="item-title">{{item.title}}</div>
@@ -143,13 +146,14 @@
 					</template>
 				</div>
 			</div>
-		</paper-material>
+		</div>
 		<div class="playerloc">
 			<podcast-player
-				src="https://s3.amazonaws.com/thewebplatform/episode-53_diving-into-angular-2.mp3"
-				name="Diving into Angular 2"
-				coverart="http://assets.libsyn.com/content/9454132"
-  			episode="53"></podcast-player>
+				src="{{content.mp3}}"
+				name="{{content.title}}"
+				coverart="{{content.coverart}}"
+				datapoints="{{content.datapoints}}"
+  			episode="{{content.episode}}"></podcast-player>
 		</div>
 	</template>
 </dom-module>
