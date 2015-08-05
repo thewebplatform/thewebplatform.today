@@ -1,0 +1,131 @@
+<link rel="import" href="../elements.html">
+
+<dom-module id="id-card">
+	<style>
+		:host {
+			display: inline-block;
+			text-align: center;
+			font-family: 'Roboto', sans-serif;
+			-webkit-font-smoothing: antialiased;
+			text-rendering: optimizeLegibility;
+		}
+		paper-material {
+			padding: 20px;
+		}
+		iron-image {
+			height: 100px;
+			width: 100px;
+			margin: 0 auto;
+			border-radius: 50%;
+		}
+		h3 {
+			font-weight: 100;
+			font-size: 16px;
+			margin-bottom: 5px
+		}
+		p {
+			font-weight: 100;
+			font-size: 14px;
+			margin: 0;
+		}
+		.social-icons {
+			margin-top: 20px
+		}
+		.social-icons a {
+			margin: 0 10px;
+		}
+		iron-icon {
+			--iron-icon-height: 25px;
+    	--iron-icon-width: 25px;
+		}
+	</style>
+	<template>
+		<iron-ajax id="twitterservice"
+			 auto
+			 url="https://api.twitter.com/1.1/users/show.json"
+			 headers='{"oauth_consumer_key":"prR64UpP1kLSFHPW9D34yNJAC"}'
+			 params="{{params}}"
+			 handle-as="json"
+			 on-response="_handleTwitterResponse"
+			 on-error="_handleTwitterError"
+			 ></iron-ajax>
+		<paper-material elevation="1" class="layout vertical">
+			<div class="flex">
+				<iron-image src="{{profile_image}}" sizing="cover"></iron-image>
+			</div>
+			<div>
+				<h3>{{name}}</h3>
+				<p>{{summary}}</p>
+			</div>
+			<div class="social-icons">
+				<a href="{{github}}"><iron-icon src="../../images/github.png"></iron-icon></a>
+				<a href="{{twitter}}"><iron-icon src="../../images/twitter.png"></iron-icon></a>
+			</div>
+		</paper-material>
+	</template>
+</dom-module>
+<script>
+	( function () {
+		Polymer({
+			is: 'id-card',
+			ready: function() {
+				console.log('i am ready');
+			},
+			properties: {
+				screen_name: {
+					type: String,
+					value: '',
+					notify: true
+				},
+				github: {
+					type: String,
+					value: '',
+					notify: true
+				},
+				summary: {
+					type: String,
+					value: '',
+					notify: true
+				},
+				params: {
+					type: Object,
+					computed: '_calculateParams(screen_name)'
+				},
+				twitter: {
+					type: String,
+					computed: '_calculateTwitterURL(screen_name)'
+				},
+				name: {
+					type: String,
+					value: ''
+				},
+				profile_image: {
+					type: String,
+					value: ''
+				}
+			},
+			_calculateParams: function () {
+				return {
+					screen_name: this.screen_name
+				};
+			},
+			_calculateTwitterURL: function () {
+				return "https://twitter.com/" + this.screen_name
+			},
+			_handleTwitterResponse: function (e, detail) {
+				console.log(e.detail.response, detail);
+				this._updateValues(e.detail.response)
+			},
+			_handleTwitterError: function (e, detail) {
+				console.log(e, detail);
+			},
+			_updateValues: function (res) {
+				this.name = res.name;
+				this.profile_image = res.profile_image_url.replace("_normal.",".");
+			},
+			getCard: function () {
+				this.$.twitterservice.generateRequest();
+			}
+		});
+	})();
+</script>
