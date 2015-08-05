@@ -36,7 +36,7 @@
 		.resources {
 			display: block;
 		}
-		.resources h3 {
+		.section-heading {
 			font-weight: 100;
 			font-size: 20px;
 		}
@@ -46,19 +46,27 @@
 			border-bottom: 1px solid rgba(0,0,0,0.12);
 		}
 		.resources paper-item {
-			padding: 10px 20px;
+			padding: 10px 0;
 			margin: 0;
 			color: var(--secondary-text-color);
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 		.resources .item-title {
 			font-weight: 100;
 			font-size: 16sp;
+			margin: 0 20px;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			word-break: break-all;
+    	height: 20px;
 		}
 		.resources .item-link {
 			font-weight: 100;
 			font-size: 14sp;
+			margin: 0 20px;
+			word-break: break-all;
+    	height: 20px;
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
@@ -86,10 +94,14 @@
 			.episode-info h5{
 				margin-top: 0;
 			}
+			id-card {
+				width: auto;
+				display: block;
+			}
 		}
 		@media all and (min-width: 601px) {
 			.resources paper-material {
-				width: 33%;
+				width: 49%;
 				display: inline-block;
 			}
 			.episode-info {
@@ -106,8 +118,21 @@
 			.episode-info h5{
 				margin-top: 10px;
 			}
+			id-card {
+				width: 49%;
+				display: inline-block;
+			}
 		}
-
+		@media all and (min-width: 780px) {
+			.resources paper-material {
+				width: 32%;
+				display: inline-block;
+			}
+			id-card {
+				width: 32%;
+				display: inline-block;
+			}
+		}
 	</style>
 	<template>
 		<iron-localstorage name="content" value="{{localstoragecontent}}"></iron-localstorage>
@@ -131,7 +156,7 @@
 			</div>
 			<div class="layout vertical resources">
 				<div>
-					<h3>Resources</h3>
+					<h3 class="section-heading">Resources</h3>
 				</div>
 				<div class="block">
 					<template is="dom-repeat" items="{{content.resources}}">
@@ -143,6 +168,19 @@
 								</paper-item-body>
 							</paper-item>
 						</paper-material>
+					</template>
+				</div>
+			</div>
+			<div class="layout vertical">
+				<div>
+					<h3 class="section-heading">Panelists</h3>
+				</div>
+				<div class="block">
+					<template is="dom-repeat" items="{{content.panelists}}">
+						<id-card
+							 screen_name="{{item.screen_name}}"
+							 github="{{item.github}}"
+							 summary="{{item.summary}}"></id-card>
 					</template>
 				</div>
 			</div>
@@ -172,10 +210,11 @@
 				}
 			},
 			_updateContent: function () {
-				this.content = this.localstoragecontent[0];
+//				this.content = this.localstoragecontent[0];
 			},
 			_handleContentResponse: function (e, detail) {
 				this.localstoragecontent = detail.response;
+				this.content = detail.response[0];
 			}
 		});
 	})();

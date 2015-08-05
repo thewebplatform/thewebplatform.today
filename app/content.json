@@ -20,6 +20,18 @@
         "link": "https://github.com/DefinitelyTyped"
       }
     ],
+		"panelists": [
+			{
+				"screen_name": "prateekjadhwani",
+				"summary": "Some stuff about me",
+				"github": "https://github.com/prateekjadhwani"
+			},
+			{
+				"screen_name": "eisaksen",
+				"summary": "Some stuff about me",
+				"github": "https://github.com/Nevraeka"
+			}
+		],
     "datapoints": [
       0.1846,
       0.1711,
