@@ -87,6 +87,7 @@
 			id-card {
 				width: auto;
 				display: block;
+				margin-bottom: 20px;
 			}
 		}
 		@media all and (min-width: 601px) {
@@ -131,7 +132,7 @@
 				url="../../content.json"
 				handle-as="json"
 				on-response="_handleContentResponse"></iron-ajax>
-		<paper-material class="episode-info" elevation="1">
+		<div class="episode-info" elevation="1">
 			<div class="titlebar layout horizontal">
 				<div class="flex layout vertical">
 					<h5>Episode <span>{{content.episode}}</span></h5>
@@ -174,7 +175,7 @@
 					</template>
 				</div>
 			</div>
-		</paper-material>
+		</div>
 	</template>
 </dom-module>
 <script>
