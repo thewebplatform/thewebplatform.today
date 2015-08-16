@@ -11,10 +11,6 @@
 			-webkit-font-smoothing: antialiased;
 			text-rendering: optimizeLegibility;
 		}
-		podcast-player {
-			position: absolute;
-			bottom: 0;
-		}
 
 		.episode-info h1{
 			color: var(--primary-text-color);
@@ -188,15 +184,12 @@
 			properties: {
 				localstoragecontent: {
 					type: Object,
-					observer: '_updateContent'
+					value: []
 				},
 				content: {
 					type: Object,
 					value: []
 				}
-			},
-			_updateContent: function () {
-//				this.content = this.localstoragecontent[0];
 			},
 			_handleContentResponse: function (e, detail) {
 				this.localstoragecontent = detail.response;
