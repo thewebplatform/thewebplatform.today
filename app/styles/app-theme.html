@@ -116,6 +116,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   
 		
 	universal-footer {
+		margin-bottom: 150px;
 		--universal-footer-background-color: black;
 		--universal-footer-text-color: gray;
 		--universal-footer-col-title-color: #0170ba;
@@ -234,8 +235,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 		.app-name h3 {
 			font-size: 20px;
 		}
-		
-		
+		paper-toolbar {
+			height: 120px;
+		}
+		paper-toolbar /deep/ #middleBar {
+			top: -60px;
+		}
 	}
   /* mobile-small-landscape */
   @media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }

@@ -11,16 +11,6 @@
 			-webkit-font-smoothing: antialiased;
 			text-rendering: optimizeLegibility;
 		}
-		.playerloc {
-			position: relative;
-			display: block;
-			height: 150px;
-			margin-top: 50px;
-		}
-		podcast-player {
-			position: absolute;
-			bottom: 0;
-		}
 
 		.episode-info h1{
 			color: var(--primary-text-color);
@@ -97,6 +87,7 @@
 			id-card {
 				width: auto;
 				display: block;
+				margin-bottom: 20px;
 			}
 		}
 		@media all and (min-width: 601px) {
@@ -185,14 +176,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="playerloc">
-			<podcast-player
-				src="{{content.mp3}}"
-				name="{{content.title}}"
-				coverart="{{content.coverart}}"
-				datapoints="{{content.datapoints}}"
-  			episode="{{content.episode}}"></podcast-player>
-		</div>
 	</template>
 </dom-module>
 <script>
@@ -202,19 +185,17 @@
 			properties: {
 				localstoragecontent: {
 					type: Object,
-					observer: '_updateContent'
+					value: []
 				},
 				content: {
 					type: Object,
 					value: []
 				}
 			},
-			_updateContent: function () {
-//				this.content = this.localstoragecontent[0];
-			},
 			_handleContentResponse: function (e, detail) {
 				this.localstoragecontent = detail.response;
 				this.content = detail.response[0];
+				document.querySelector("#app").player = this.content;
 			}
 		});
 	})();
