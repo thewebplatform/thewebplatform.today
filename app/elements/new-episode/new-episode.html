@@ -11,12 +11,6 @@
 			-webkit-font-smoothing: antialiased;
 			text-rendering: optimizeLegibility;
 		}
-		.playerloc {
-			position: relative;
-			display: block;
-			height: 150px;
-			margin-top: 50px;
-		}
 		podcast-player {
 			position: absolute;
 			bottom: 0;
@@ -185,14 +179,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="playerloc">
-			<podcast-player
-				src="{{content.mp3}}"
-				name="{{content.title}}"
-				coverart="{{content.coverart}}"
-				datapoints="{{content.datapoints}}"
-  			episode="{{content.episode}}"></podcast-player>
-		</div>
 	</template>
 </dom-module>
 <script>
@@ -215,6 +201,7 @@
 			_handleContentResponse: function (e, detail) {
 				this.localstoragecontent = detail.response;
 				this.content = detail.response[0];
+				document.querySelector("#app").player = this.content;
 			}
 		});
 	})();

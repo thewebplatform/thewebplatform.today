@@ -46,3 +46,12 @@ body {
 	background: #1976D2;
 	color: #BBDEFB;
 }
+
+.playerloc {
+	position: fixed;
+	display: block;
+	height: 150px;
+	margin-top: 50px;
+	bottom: 0;
+	width: 100%;
+}

@@ -59,7 +59,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <span id="browser-sync-binding"></span>
 
   <template is="dom-bind" id="app">
-		<paper-header-panel main mode="standard" class="tall">
+		<paper-header-panel main mode="scroll">
 			<!-- Main Toolbar -->
 			<paper-toolbar id="mainToolbar" class="tall layout vertical">
 
@@ -105,6 +105,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 					</div>
 					<div copyright-center>© 2015 The Web Platform Today</div>
 				</universal-footer>
+				
+				<div class="playerloc">
+					<template is="dom-if" if="{{player.mp3}}">
+						<podcast-player
+							src="{{player.mp3}}"
+							name="{{player.title}}"
+							coverart="{{player.coverart}}"
+							datapoints="{{player.datapoints}}"
+							episode="{{player.episode}}"></podcast-player>
+					</template>
+				</div>
 			</div>
 		</paper-header-panel>
 
